@@ -63,39 +63,74 @@
     </style>
 
     <script>
+      // function clock() {
+      //   let handHour = document.querySelector(".hour-hand");
+      //   let handMin = document.querySelector(".min-hand");
+      //   let handSec = document.querySelector(".second-hand");
+
+       
+
+      //   var time = new Date();
+      //   const hour = time.getHours();
+      //   const minute = time.getMinutes();
+      //   const second = time.getSeconds();
+
+      //   let hr_rotation = ((hour % 12) / 12) * 360 + ((minute / 60) * 30);
+      //   let min_rotation = (minute / 60) * 360 + ((second / 60) * 6);
+      //   let second_rotation = (second / 60) * 360;
+
+      //   handHour.style.transform = `rotate(${hr_rotation}deg)`;
+      //   handHour.style.transformOrigin = "100%" ;
+        
+      //   handMin.style.transform = `rotate(${min_rotation}deg)`;
+      //   handMin.style.transformOrigin = "100%" ;
+      //   handMin.style.backgroundColor = "green" ;
+       
+
+      //   handSec.style.transform = `rotate(${second_rotation}deg)`;
+      //   handSec.style.transformOrigin = "100%" ;
+        
+
+      //   console.log(hour, minute, second, hr_rotation)
+      // }
+      // setInterval((clock), 1000);
+
+      // clock ();
+
       function clock() {
-        let handHour = document.querySelector(".hour-hand");
-        let handMin = document.querySelector(".min-hand");
-        let handSec = document.querySelector(".second-hand");
+  let handHour = document.querySelector(".hour-hand");
+  let handMin = document.querySelector(".min-hand");
+  let handSec = document.querySelector(".second-hand");
 
-       
+  var time = new Date();
+  const hour = time.getHours();
+  const minute = time.getMinutes();
+  const second = time.getSeconds();
 
-        var time = new Date();
-        const hour = time.getHours();
-        const minute = time.getMinutes();
-        const second = time.getSeconds();
+  // Calculate rotations
+  let hr_rotation = ((hour % 12) / 12) * 360 + ((minute / 60) * 30);
+  let min_rotation = (minute / 60) * 360 + ((second / 60) * 6);
+  let second_rotation = (second / 60) * 360;
 
-        let hr_rotation = ((hour % 12) / 12) * 360 + ((minute / 60) * 30);
-        let min_rotation = (minute / 60) * 360 + ((second / 60) * 6);
-        let second_rotation = (second / 60) * 360;
+  // Apply rotations
+  handHour.style.transform = `rotate(${hr_rotation}deg)`;
+  handHour.style.transformOrigin = "100%";
 
-        handHour.style.transform = `rotate(${hr_rotation}deg)`;
-        handHour.style.transformOrigin = "100%" ;
-        
-        handMin.style.transform = `rotate(${min_rotation}deg)`;
-        handMin.style.transformOrigin = "100%" ;
-        handMin.style.backgroundColor = "green" ;
-       
+  handMin.style.transform = `rotate(${min_rotation}deg)`;
+  handMin.style.transformOrigin = "100%";
 
-        handSec.style.transform = `rotate(${second_rotation}deg)`;
-        handSec.style.transformOrigin = "100%" ;
-        
+  handSec.style.transform = `rotate(${second_rotation}deg)`;
+  handSec.style.transformOrigin = "100%";
 
-        console.log(hour, minute, second, hr_rotation)
-      }
-      setInterval((clock), 1000);
+  console.log(hour, minute, second, hr_rotation, min_rotation, second_rotation);
+}
 
-      clock ();
+// Call the clock function every second
+setInterval(clock, 1000);
+
+// Initial call to set the clock correctly when the page loads
+clock();
+
     </script>
   </body>
 </html>
